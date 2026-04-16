@@ -8,11 +8,8 @@ version = '1.0-SNAPSHOT'
 
 description = "MyMavenToGradle"
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -26,5 +23,5 @@ dependencies {
 }
 
 application {
-    mainClass = 'com.example.App'   // ⚠️ change if your class name is different
+    mainClassName = 'com.example.App'   // ⚠️ IMPORTANT: old Gradle uses this
 }
