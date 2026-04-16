@@ -1,10 +1,10 @@
-plugins {
-    id 'java'
-    id 'application'
-}
+apply plugin: 'java'
+apply plugin: 'application'
 
 group = 'com.example1'
 version = '1.0-SNAPSHOT'
+
+description = "MyMavenToGradle"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -16,12 +16,8 @@ repositories {
 dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.20.0'
     implementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
+
     testImplementation 'junit:junit:4.13.2'
 }
 
-// Using the legacy property which is safer for Jenkins/older Gradle
 mainClassName = 'com.example.App'
-
-application {
-    mainClassName = 'com.example.App'
-}
