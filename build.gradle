@@ -8,20 +8,32 @@ version = '1.0-SNAPSHOT'
 
 description = "MyMavenToGradle"
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+// Use standard Java toolchain for compatibility
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    // Selenium and WebDriverManager for automation
     implementation 'org.seleniumhq.selenium:selenium-java:4.20.0'
     implementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
 
+    // JUnit for testing
     testImplementation 'junit:junit:4.13.2'
 }
 
 application {
-    mainClassName = 'com.example.App'   // ⚠️ IMPORTANT: old Gradle uses this
+    // For Gradle 7.0+, use mainClass. 
+    // Ensure this matches the package and class name in your src/main/java folder.
+    mainClass = 'com.example.App' 
+}
+
+// Ensure tests use JUnit 4
+test {
+    useJUnit()
 }
