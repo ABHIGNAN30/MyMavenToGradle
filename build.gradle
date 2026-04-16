@@ -5,9 +5,7 @@ plugins {
 
 group = 'com.example1'
 version = '1.0-SNAPSHOT'
-description = "MyMavenToGradle"
 
-// Use the direct property assignment which works in all versions
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -21,12 +19,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
-// This block is compatible with older Gradle versions used in Jenkins
+// Using the legacy property which is safer for Jenkins/older Gradle
+mainClassName = 'com.example.App'
+
 application {
     mainClassName = 'com.example.App'
-}
-
-// Ensures Jenkins runs your JUnit 4 tests correctly
-test {
-    useJUnit()
 }
